@@ -1,0 +1,61 @@
+
+    <div class="dashboard-layout" [class.sidebar-open]="sidebarOpen">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <div class="logo-icon-nav">SM</div>
+            <span>Admin <span class="gradient-text">Panel</span></span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-group">
+            <span class="nav-group-label">Main</span>
+            <a routerLink="/admin/services" routerLinkActive="active" class="nav-item">
+              <i class="bi bi-grid-fill"></i>
+              <span>Services</span>
+            </a>
+            <a routerLink="/admin/employees" routerLinkActive="active" class="nav-item">
+              <i class="bi bi-people-fill"></i>
+              <span>Employees</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <span class="nav-group-label">App</span>
+            <a routerLink="/" class="nav-item">
+              <i class="bi bi-house-fill"></i>
+              <span>View Website</span>
+            </a>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="logout-btn" (click)="auth.logout()">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="dashboard-main">
+        <!-- Topbar -->
+        <header class="dashboard-topbar">
+          <button class="sidebar-toggle" (click)="sidebarOpen = !sidebarOpen">
+            <i class="bi bi-list"></i>
+          </button>
+          <h4 class="topbar-title">Admin Dashboard</h4>
+          <div class="topbar-actions">
+            <div class="admin-avatar">A</div>
+          </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="dashboard-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  

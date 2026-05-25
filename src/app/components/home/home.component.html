@@ -1,0 +1,581 @@
+<div class="home-page">
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-section">
+    <!-- Animated gradient background -->
+    <div class="hero-bg">
+      <div class="hero-gradient-orb orb-1"></div>
+      <div class="hero-gradient-orb orb-2"></div>
+      <div class="hero-gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Particles -->
+    <div class="particles-container">
+      <div class="particle" *ngFor="let p of particles" [ngStyle]="p.style"></div>
+    </div>
+
+    <!-- Floating shapes -->
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container-custom">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">🚀 Premium Digital Marketing Agency</div>
+
+          <h1 class="hero-title">
+            We Grow Your
+            <br>
+            <span class="hero-typed">
+              {{ currentTypingText() }}<span class="type-cursor">|</span>
+            </span>
+            <br>
+            <span class="gradient-text-hero">Digitally</span>
+          </h1>
+
+          <p class="hero-subtitle">Sake Marketing Solutions delivers cutting-edge digital marketing, web development, and branding solutions that drive real results for ambitious businesses.</p>
+
+          <div class="hero-cta">
+            <a routerLink="/contact" class="btn-primary-custom btn-lg-hero">
+              <i class="bi bi-calendar-check-fill"></i>
+              Get Free Consultation
+            </a>
+            <a routerLink="/services" class="btn-outline-custom btn-lg-hero">
+              <i class="bi bi-grid-fill"></i>
+              Explore Services
+            </a>
+          </div>
+
+          <!-- Stats mini cards -->
+          <div class="hero-stats">
+            <div class="hero-stat-card" *ngFor="let counter of counters">
+              <span class="stat-number">{{ counter.target }}{{ counter.suffix }}</span>
+              <span class="stat-label">{{ counter.label }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <div class="hcard-header">
+              <div class="hcard-dots">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+              <span class="hcard-title">Performance Analytics</span>
+            </div>
+            <div class="hcard-body">
+              <div class="metric-row" *ngFor="let m of [
+                {label:'Website Traffic', value:'+247%', bar:75},
+                {label:'Conversions', value:'+183%', bar:55},
+                {label:'Revenue Growth', value:'+315%', bar:90},
+                {label:'ROI', value:'+428%', bar:80}
+              ]">
+                <div class="metric-info">
+                  <span>{{ m.label }}</span>
+                  <span class="metric-val" style="color:#00d4ff">{{ m.value }}</span>
+                </div>
+                <div class="metric-bar">
+                  <div class="metric-fill" [style.width.%]="m.bar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating cards -->
+          <div class="floating-badge badge-1">
+            <i class="bi bi-graph-up-arrow"></i>
+            <div>
+              <span class="fb-val">+300%</span>
+              <span class="fb-label">Growth</span>
+            </div>
+          </div>
+          <div class="floating-badge badge-2">
+            <i class="bi bi-star-fill"></i>
+            <div>
+              <span class="fb-val">5.0</span>
+              <span class="fb-label">Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT PREVIEW ===== -->
+  <section class="section bg-dark-section">
+    <div class="container-custom">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6" appReveal>
+          <div class="about-visual">
+            <div class="about-img-wrapper">
+              <div class="about-card-stat">
+                <div class="acs-item" *ngFor="let a of [
+                  {icon:'bi-trophy-fill', val:'500+', label:'Projects'},
+                  {icon:'bi-people-fill', val:'300+', label:'Clients'},
+                  {icon:'bi-star-fill', val:'5.0', label:'Rating'},
+                  {icon:'bi-globe', val:'20+', label:'Countries'}
+                ]">
+                  <i class="bi" [class]="a.icon"></i>
+                  <span class="acs-val">{{ a.val }}</span>
+                  <span class="acs-label">{{ a.label }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" appReveal>
+          <div class="section-badge"><i class="bi bi-info-circle-fill"></i>Who We Are</div>
+          <h2 class="section-title">About Sake Marketing Solutions</h2>
+          <div class="gradient-line"></div>
+          <p class="section-subtitle">We are a premium digital agency that transforms brands through innovative marketing strategies, world-class web development, and data-driven campaigns.</p>
+          <p class="section-subtitle mt-3">Founded with a passion for digital excellence, Sake Marketing Solutions has grown into a trusted partner for businesses across the globe.</p>
+
+          <div class="about-achievements mt-4">
+            <div class="achievement-chip" *ngFor="let a of achievements">
+              <i class="bi bi-check-circle-fill"></i>
+              {{ a }}
+            </div>
+          </div>
+
+          <a routerLink="/about" class="btn-primary-custom mt-4">
+            <i class="bi bi-arrow-right"></i>
+            Learn More About Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES PREVIEW ===== -->
+  <section class="section bg-gradient-section">
+    <div class="container-custom">
+      <div class="section-header" appReveal>
+        <div class="section-badge"><i class="bi bi-grid-fill"></i>What We Offer</div>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive digital solutions tailored to accelerate your business growth.</p>
+      </div>
+
+      <!-- Loading skeleton -->
+      <div class="row g-4 mt-2" *ngIf="servicesLoading()">
+        <div class="col-lg-4 col-md-6" *ngFor="let i of [1,2,3,4,5,6]">
+          <div class="glass-card p-4">
+            <div class="skeleton mb-3" style="width:60px;height:60px;border-radius:16px;"></div>
+            <div class="skeleton mb-2" style="width:70%;height:20px;"></div>
+            <div class="skeleton" style="width:100%;height:60px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-3 mt-2 mb-3 text-danger" *ngIf="servicesError() && !servicesLoading()">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ servicesError() }}
+      </div>
+
+      <!-- Services grid -->
+      <div class="row g-4 mt-2" *ngIf="!servicesLoading() && !servicesError()">
+        <div class="col-lg-4 col-md-6" *ngFor="let service of services(); let i = index" appReveal>
+          <div class="service-card glass-card">
+            <div class="service-icon-wrapper" [style.background]="getServiceColor(i) + '15'">
+              <i class="bi" [class]="getServiceIcon(i)" [style.color]="getServiceColor(i)"></i>
+              <img *ngIf="service.imageUrl" [src]="getImageUrl(service.imageUrl)" [alt]="service.name" class="service-img" loading="lazy">
+            </div>
+            <h5 class="service-title">{{ service.name }}</h5>
+            <p class="service-desc">{{ service.description }}</p>
+            <a routerLink="/services" class="service-link" [style.color]="getServiceColor(i)">
+              Learn More
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5" appReveal>
+        <a routerLink="/services" class="btn-outline-custom">
+          <i class="bi bi-grid-fill"></i>
+          View All Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANIMATED COUNTERS ===== -->
+  <section class="section" id="counters-section">
+    <div class="container-custom">
+      <div class="counters-grid">
+        <div class="counter-card glass-card" *ngFor="let c of counters" appReveal>
+          <div class="counter-icon" [style.background]="c.color + '20'">
+            <i class="bi" [class]="c.icon" [style.color]="c.color"></i>
+          </div>
+          <div class="counter-num" [style.color]="c.color">{{ c.value }}{{ c.suffix }}</div>
+          <div class="counter-label">{{ c.label }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKFLOW PROCESS ===== -->
+  <section class="section bg-dark-section">
+    <div class="container-custom">
+      <div class="section-header" appReveal>
+        <div class="section-badge"><i class="bi bi-diagram-3-fill"></i>How We Work</div>
+        <h2 class="section-title">Our Workflow</h2>
+      </div>
+
+      <div class="process-timeline mt-5">
+        <div class="process-step" *ngFor="let step of processSteps; let i = index; let last = last" appReveal>
+          <div class="step-connector" *ngIf="!last"></div>
+          <div class="step-circle" [style.background]="step.color + '20'" [style.border-color]="step.color + '50'">
+            <i class="bi" [class]="step.icon" [style.color]="step.color"></i>
+          </div>
+          <div class="step-num">{{ step.num }}</div>
+          <h6 class="step-title">{{ step.title }}</h6>
+          <p class="step-desc">{{ step.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECHNOLOGIES ===== -->
+  <section class="section bg-gradient-section">
+    <div class="container-custom">
+      <div class="section-header" appReveal>
+        <div class="section-badge"><i class="bi bi-cpu-fill"></i>Our Tech Stack</div>
+        <h2 class="section-title">Technologies We Use</h2>
+      </div>
+
+      <div class="tech-grid mt-5">
+        <div class="tech-card glass-card" *ngFor="let tech of technologies" appReveal>
+          <div class="tech-icon-wrapper" [style.background]="tech.bg">
+            <i class="bi" [class]="tech.icon" [style.color]="tech.color"></i>
+          </div>
+          <span class="tech-name">{{ tech.name }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section">
+    <div class="container-custom">
+      <div class="section-header" appReveal>
+        <div class="section-badge"><i class="bi bi-star-fill"></i>What Sets Us Apart</div>
+        <h2 class="section-title">Why Choose Us</h2>
+      </div>
+
+      <div class="row g-4 mt-3">
+        <div class="col-lg-4 col-md-6" *ngFor="let item of whyUsItems; let i = index" appReveal>
+          <div class="why-card glass-card">
+            <div class="why-icon">
+              <i class="bi" [class]="item.icon"></i>
+            </div>
+            <h5>{{ item.title }}</h5>
+            <p>{{ item.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section bg-dark-section">
+    <div class="container-custom">
+      <div class="section-header" appReveal>
+        <div class="section-badge"><i class="bi bi-chat-quote-fill"></i>What Our Clients Say</div>
+        <h2 class="section-title">Client Testimonials</h2>
+      </div>
+
+      <div class="testimonials-wrapper mt-5" appReveal>
+        <div class="testimonial-slider">
+          <div class="testimonial-card active" *ngFor="let t of testimonials; let i = index" [class.active]="activeTestimonial() === i">
+            <div class="quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">{{ t.text }}</p>
+            <div class="stars">
+              <i class="bi bi-star-fill" *ngFor="let s of [1,2,3,4,5]"></i>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">{{ t.avatar }}</div>
+              <div>
+                <h6>{{ t.name }}</h6>
+                <span>{{ t.company }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-dots">
+          <button
+            *ngFor="let t of testimonials; let i = index"
+            class="dot-btn"
+            [class.active]="activeTestimonial() === i"
+            (click)="setTestimonial(i)"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLIENT LOGOS ===== -->
+  <section class="section bg-gradient-section overflow-hidden">
+    <div class="container-custom">
+      <div class="section-header" appReveal>
+        <div class="section-badge"><i class="bi bi-building-fill"></i>Trusted By</div>
+        <h2 class="section-title">Our <span class="gradient-text">Clients</span></h2>
+      </div>
+    </div>
+    <div class="clients-track-wrapper mt-5">
+      <div class="clients-track">
+        <div class="client-logo" *ngFor="let c of clients">{{ c }}</div>
+        <!-- Duplicate for infinite scroll -->
+        <div class="client-logo" *ngFor="let c of clients">{{ c }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM PREVIEW ===== -->
+  <section class="section">
+    <div class="container-custom">
+      <div class="section-header" appReveal>
+        <div class="section-badge"><i class="bi bi-people-fill"></i>The People Behind Our Success</div>
+        <h2 class="section-title">Meet Our Team</h2>
+        <p class="section-subtitle">A passionate team of experts dedicated to delivering excellence.</p>
+      </div>
+
+      <!-- Skeleton -->
+      <div class="row g-4 mt-3" *ngIf="employeesLoading()">
+        <div class="col-lg-3 col-md-6" *ngFor="let i of [1,2,3,4]">
+          <div class="glass-card p-4 text-center">
+            <div class="skeleton mx-auto mb-3" style="width:100px;height:100px;border-radius:50%;"></div>
+            <div class="skeleton mx-auto mb-2" style="width:80%;height:18px;"></div>
+            <div class="skeleton mx-auto" style="width:60%;height:14px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-3 mt-3 mb-3 text-danger" *ngIf="employeesError() && !employeesLoading()">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ employeesError() }}
+      </div>
+
+      <div class="row g-4 mt-3" *ngIf="!employeesLoading() && !employeesError()">
+        <div class="col-lg-3 col-md-6" *ngFor="let emp of employees()" appReveal>
+          <div class="team-card glass-card">
+            <div class="team-img-wrapper">
+              <img *ngIf="emp.imageUrl" [src]="getImageUrl(emp.imageUrl)" [alt]="emp.fullName" class="team-img" loading="lazy">
+              <div *ngIf="!emp.imageUrl" class="team-img-placeholder">
+                <span>{{ emp.fullName.charAt(0) }}</span>
+              </div>
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="team-info">
+              <h6>{{ emp.fullName }}</h6>
+              <span>{{ emp.subTitle }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5" appReveal>
+        <a routerLink="/team" class="btn-outline-custom">
+          <i class="bi bi-people-fill"></i>
+          View All Team
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section bg-dark-section">
+    <div class="container-custom">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5" appReveal>
+          <div class="section-badge"><i class="bi bi-question-circle-fill"></i>Got Questions? We Have Answers</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">We are a premium digital agency that transforms brands through innovative marketing strategies, world-class web development, and data-driven campaigns.</p>
+          <a routerLink="/contact" class="btn-primary-custom mt-4">
+            <i class="bi bi-headset"></i>
+            Contact Us
+          </a>
+        </div>
+
+        <div class="col-lg-7" appReveal>
+          <div class="faq-list">
+            <div class="faq-item glass-card" *ngFor="let faq of faqItems; let i = index" [class.open]="faq.open">
+              <button class="faq-question" (click)="toggleFaq(i)">
+                <span>{{ faq.q }}</span>
+                <i class="bi" [class.bi-plus-circle]="!faq.open" [class.bi-dash-circle]="faq.open"></i>
+              </button>
+              <div class="faq-answer" [class.visible]="faq.open">
+                <p>{{ faq.a }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONSULTATION CTA ===== -->
+  <section class="section consultation-section">
+    <div class="consult-bg">
+      <div class="consult-orb orb-1"></div>
+      <div class="consult-orb orb-2"></div>
+    </div>
+    <div class="container-custom">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5" appReveal>
+          <div class="section-badge"><i class="bi bi-calendar-check-fill"></i>Let's Grow Together</div>
+          <h2 class="section-title">Get a Free Consultation</h2>
+          <p class="section-subtitle">Ready to take your business to the next level? Schedule a free consultation with our experts and discover how we can help you achieve your digital goals.</p>
+
+          <div class="consult-features mt-4">
+            <div class="cf-item" *ngFor="let f of ['Free Consultation','Expert Team','Tailored Solutions','Fast Response']">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>{{ f }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7" appReveal>
+          <div class="consult-form-card glass-card">
+            <form [formGroup]="consultForm" (ngSubmit)="submitConsultation()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Full Name *</label>
+                    <input class="form-control-custom" [class.is-invalid]="isInvalid('name')" formControlName="name" type="text">
+                    <div class="invalid-feedback" *ngIf="isInvalid('name')">
+                      <i class="bi bi-exclamation-circle"></i>This field is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Phone Number *</label>
+                    <input class="form-control-custom" [class.is-invalid]="isInvalid('phoneNumber')" formControlName="phoneNumber" type="tel">
+                    <div class="invalid-feedback" *ngIf="isInvalid('phoneNumber')">
+                      <i class="bi bi-exclamation-circle"></i>Please enter a valid phone number
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Email Address *</label>
+                    <input class="form-control-custom" [class.is-invalid]="isInvalid('email')" formControlName="email" type="email">
+                    <div class="invalid-feedback" *ngIf="isInvalid('email')">
+                      <i class="bi bi-exclamation-circle"></i>Please enter a valid email address
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Company Name</label>
+                    <input class="form-control-custom" formControlName="companyName" type="text">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group-custom">
+                    <label>Estimated Budget</label>
+                    <input class="form-control-custom" formControlName="estimatedBudget" type="text" placeholder="e.g. $5,000 - $10,000">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group-custom">
+                    <label>Your Message *</label>
+                    <textarea class="form-control-custom" [class.is-invalid]="isInvalid('message')" formControlName="message" rows="4"></textarea>
+                    <div class="invalid-feedback" *ngIf="isInvalid('message')">
+                      <i class="bi bi-exclamation-circle"></i>This field is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom w-100" [disabled]="submitting()">
+                    <span *ngIf="!submitting()"><i class="bi bi-send-fill"></i> Send Request</span>
+                    <span *ngIf="submitting()"><i class="bi bi-hourglass-split"></i> Sending...</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section bg-dark-section" id="contact">
+    <div class="container-custom">
+      <div class="section-header" appReveal>
+        <div class="section-badge"><i class="bi bi-envelope-fill"></i>Get In Touch</div>
+        <h2 class="section-title">Contact Us</h2>
+      </div>
+
+      <div class="row g-5 mt-2">
+        <div class="col-lg-4" appReveal>
+          <div class="contact-cards">
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <h6>Address</h6>
+                <p>123 Digital Hub, Cairo, Egypt</p>
+              </div>
+            </div>
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <h6>Phone</h6>
+                <p>+20 100 000 0000</p>
+              </div>
+            </div>
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <h6>Email</h6>
+                <p>info@sakemarketing.com</p>
+              </div>
+            </div>
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <h6>Working Hours</h6>
+                <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8" appReveal>
+          <!-- Map placeholder -->
+          <div class="map-placeholder glass-card">
+            <div class="map-inner">
+              <i class="bi bi-geo-alt-fill"></i>
+              <h5>Digital Hub, Cairo, Egypt</h5>
+              <p>Visit us at our headquarters</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

@@ -1,0 +1,24 @@
+    <app-loader *ngIf="showLoader()" (loadingDone)="onLoadingDone()"></app-loader>
+
+    <div class="app-wrapper" [class.loaded]="!showLoader()">
+      <div class="cursor-dot" #cursorDot></div>
+      <div class="cursor-ring" #cursorRing></div>
+
+      <app-navbar></app-navbar>
+
+      <main class="page-transition-enter">
+        <router-outlet></router-outlet>
+      </main>
+
+      <app-footer></app-footer>
+
+      <a href="https://wa.me/201000000000" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+
+      <button class="scroll-top-btn" [class.visible]="showScrollTop()" (click)="scrollToTop()" title="Back to top">
+        <i class="bi bi-arrow-up"></i>
+      </button>
+
+      <app-toast-container></app-toast-container>
+    </div>

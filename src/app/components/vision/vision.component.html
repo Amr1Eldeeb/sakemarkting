@@ -1,0 +1,59 @@
+
+    <div class="vision-page">
+      <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container-custom text-center">
+          <div appReveal>
+            <div class="section-badge"><i class="bi bi-eye-fill"></i>The Future We're Building</div>
+            <h1 class="section-title">Our Vision</h1>
+            <p class="section-subtitle mx-auto">To be the most trusted and innovative digital marketing agency in the MENA region, recognized globally for transforming businesses through technology, creativity, and data-driven strategies.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-dark-section">
+        <div class="container-custom">
+          <div class="vision-statement" appReveal>
+            <div class="vs-circle"><i class="bi bi-eye-fill"></i></div>
+            <h2 class="gradient-text">To be the most trusted and innovative digital marketing agency in the MENA region, recognized globally for transforming businesses through technology, creativity, and data-driven strategies.</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-gradient-section">
+        <div class="container-custom">
+          <div class="section-header" appReveal>
+            <div class="section-badge"><i class="bi bi-flag-fill"></i>Strategic Goals</div>
+            <h2 class="section-title">Strategic <span class="gradient-text">Goals</span></h2>
+          </div>
+          <div class="goals-timeline mt-5">
+            <div class="goal-timeline-item glass-card" *ngFor="let g of goals; let i = index" appReveal>
+              <div class="gtl-number" [style.color]="g.color">{{ g.year }}</div>
+              <div class="gtl-connector" [style.background]="g.color"></div>
+              <div class="gtl-content">
+                <i class="bi" [class]="g.icon" [style.color]="g.color"></i>
+                <h5>{{ g.title }}</h5>
+                <p>{{ g.desc }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container-custom">
+          <div class="section-header" appReveal>
+            <h2 class="section-title">The <span class="gradient-text">Future</span> We're Building</h2>
+          </div>
+          <div class="future-grid mt-5">
+            <div class="future-card glass-card" *ngFor="let f of futureItems" appReveal>
+              <div class="fc-glow" [style.background]="f.color + '10'"></div>
+              <i class="bi" [class]="f.icon" [style.color]="f.color"></i>
+              <h5>{{ f.title }}</h5>
+              <p>{{ f.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  

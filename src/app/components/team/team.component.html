@@ -1,0 +1,79 @@
+
+    <div class="team-page">
+      <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container-custom text-center">
+          <div appReveal>
+            <div class="section-badge"><i class="bi bi-people-fill"></i>The People Behind Our Success</div>
+            <h1 class="section-title">Meet Our Team</h1>
+            <p class="section-subtitle mx-auto">A passionate team of experts dedicated to delivering excellence.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-dark-section">
+        <div class="container-custom">
+          <!-- Skeleton -->
+          <div class="row g-4" *ngIf="loading()">
+            <div class="col-lg-3 col-md-6" *ngFor="let i of [1,2,3,4,5,6,7,8]">
+              <div class="glass-card p-4 text-center">
+                <div class="skeleton mx-auto mb-3" style="width:120px;height:120px;border-radius:50%;"></div>
+                <div class="skeleton mx-auto mb-2" style="width:80%;height:18px;"></div>
+                <div class="skeleton mx-auto" style="width:60%;height:14px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-4 mb-4 text-danger" *ngIf="error() && !loading()">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ error() }}
+            <button type="button" class="btn-outline-custom btn-sm-nav ms-3" (click)="load()">Retry</button>
+          </div>
+
+          <div class="row g-4" *ngIf="!loading() && !error()">
+            <div class="col-lg-3 col-md-6" *ngFor="let emp of employees()" appReveal>
+              <div class="emp-card glass-card">
+                <div class="emp-img-wrapper">
+                  <img *ngIf="emp.imageUrl" [src]="getImageUrl(emp.imageUrl)" [alt]="emp.fullName" loading="lazy">
+                  <div *ngIf="!emp.imageUrl" class="emp-placeholder">
+                    <span>{{ emp.fullName.charAt(0) }}</span>
+                  </div>
+                  <div class="emp-overlay">
+                    <div class="emp-social">
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                      <a href="#"><i class="bi bi-twitter-x"></i></a>
+                      <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="emp-info">
+                  <h5>{{ emp.fullName }}</h5>
+                  <span>{{ emp.subTitle }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="empty-state glass-card" *ngIf="!loading() && employees().length === 0">
+            <i class="bi bi-people"></i>
+            <h5>No team members available at the moment.</h5>
+          </div>
+        </div>
+      </section>
+
+      <!-- Join us CTA -->
+      <section class="section bg-gradient-section">
+        <div class="container-custom text-center" appReveal>
+          <div class="join-cta glass-card">
+            <i class="bi bi-briefcase-fill"></i>
+            <h2>Join Our <span class="gradient-text">Amazing Team</span></h2>
+            <p>We're always looking for talented individuals to join our growing family.</p>
+            <a href="mailto:careers@sakemarketing.com" class="btn-primary-custom">
+              <i class="bi bi-send-fill"></i>
+              Apply Now
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  
+

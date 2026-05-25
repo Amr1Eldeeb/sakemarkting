@@ -1,0 +1,104 @@
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #050814;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+
+  &.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.loader-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.loader-logo {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* اللوجو الثابت بأنيميشن دخول انسيابي (تكبير ناعم + ظهور تدريجي) */
+.logo-asset-static {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* لضمان التوسيط المطلق بالبكسل */
+  width: 130px; 
+  height: 130px;
+  object-fit: contain;
+  z-index: 1;
+  
+  /* أنيميشن يبدأ من الاختفاء والتصغير ليظهر ويكبر بنعومة خلال 1.2 ثانية */
+  animation: logo-entrance 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+}
+
+/* كود أنيميشن الدخول الفخم (Fade In + Scale) */
+@keyframes logo-entrance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.loader-text {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  margin-bottom: 12px;
+  text-shadow: 0 0 40px rgba(108,99,255,0.6);
+  min-height: 2.8rem;
+}
+
+.cursor-blink {
+  color: #6c63ff;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.loader-tagline {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.progress-bar-wrapper {
+  width: 300px;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6c63ff, #00d4ff);
+  border-radius: 2px;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px rgba(108,99,255,0.5);
+}

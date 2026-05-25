@@ -1,0 +1,66 @@
+
+    .admin-section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;
+      h2 { font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 4px; }
+      p { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin: 0; }
+    }
+
+    .search-bar { display: flex; align-items: center; gap: 12px; padding: 14px 20px; margin-bottom: 20px; border-radius: 12px;
+      i { color: rgba(255,255,255,0.35); }
+      input { flex: 1; background: none; border: none; outline: none; color: white; font-size: 0.9rem; font-family: inherit; &::placeholder { color: rgba(255,255,255,0.3); } }
+    }
+
+    .emp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+
+    .emp-skeleton { padding: 28px; text-align: center; }
+
+    .emp-card {
+      padding: 28px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px;
+
+      .emp-img-wrapper { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin-bottom: 4px;
+        img { width: 100%; height: 100%; object-fit: cover; }
+        .emp-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, rgba(108,99,255,0.4), rgba(0,212,255,0.3)); display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: rgba(255,255,255,0.7); border-radius: 50%; }
+      }
+
+      h6 { font-size: 0.95rem; font-weight: 700; color: white; margin: 0; }
+      span { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+      .emp-actions { display: flex; gap: 8px; margin-top: 12px;
+        .action-btn { width: 34px; height: 34px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: all 0.2s;
+          &.edit { background: rgba(108,99,255,0.15); color: #8b85ff; &:hover { background: rgba(108,99,255,0.3); } }
+          &.delete { background: rgba(255,59,59,0.1); color: #ff6b6b; &:hover { background: rgba(255,59,59,0.2); } }
+        }
+      }
+    }
+
+    .empty-state { padding: 60px; text-align: center;
+      i { font-size: 3rem; color: rgba(255,255,255,0.15); margin-bottom: 16px; display: block; }
+      p { color: rgba(255,255,255,0.4); margin: 0; }
+    }
+
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 9990; }
+
+    .admin-modal, .confirm-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9991; width: calc(100% - 40px); max-width: 520px; padding: 32px; border-color: rgba(108,99,255,0.2); animation: scale-in 0.2s ease; }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;
+      h4 { font-size: 1.2rem; font-weight: 700; color: white; margin: 0; }
+      .modal-close { background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 1rem; padding: 4px; &:hover { color: white; } }
+    }
+
+    .file-upload-area { border: 2px dashed rgba(255,255,255,0.12); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s; color: rgba(255,255,255,0.5);
+      i { font-size: 2rem; } span { font-size: 0.88rem; }
+      &:hover { border-color: rgba(108,99,255,0.4); background: rgba(108,99,255,0.05); color: rgba(255,255,255,0.8); }
+    }
+
+    .modal-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+
+    .confirm-modal { text-align: center; max-width: 380px;
+      .confirm-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,59,59,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #ff6b6b; margin: 0 auto 16px; }
+      h5 { font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 8px; }
+      p { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    }
+
+    .btn-delete { display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 100px; background: rgba(255,59,59,0.2); border: 1px solid rgba(255,59,59,0.3); color: #ff6b6b; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.2s;
+      &:hover { background: rgba(255,59,59,0.3); }
+      &:disabled { opacity: 0.5; cursor: not-allowed; }
+    }
+  

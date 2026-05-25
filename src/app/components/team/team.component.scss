@@ -1,0 +1,61 @@
+
+    .page-hero { padding: 160px 0 80px; position: relative;
+      &-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(108,99,255,0.15) 0%, transparent 60%), linear-gradient(180deg, #050814 0%, #0a0f1e 100%); }
+      & > .container-custom { position: relative; z-index: 1; .section-subtitle { margin: 0 auto; } }
+    }
+
+    .emp-card {
+      overflow: hidden;
+      text-align: center;
+
+      .emp-img-wrapper {
+        position: relative;
+        height: 240px;
+        overflow: hidden;
+
+        img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+
+        .emp-placeholder {
+          width: 100%; height: 100%;
+          background: linear-gradient(135deg, rgba(108,99,255,0.3), rgba(0,212,255,0.2));
+          display: flex; align-items: center; justify-content: center;
+          font-size: 5rem; font-weight: 800; color: rgba(255,255,255,0.3);
+        }
+
+        .emp-overlay {
+          position: absolute; inset: 0; background: rgba(5,8,20,0.75);
+          display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px;
+          opacity: 0; transition: opacity 0.3s ease;
+        }
+
+        .emp-social {
+          display: flex; gap: 12px;
+          a { width: 40px; height: 40px; border-radius: 50%; background: rgba(108,99,255,0.9); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 0.9rem; transition: transform 0.2s;
+            &:hover { transform: scale(1.15); }
+          }
+        }
+      }
+
+      &:hover { .emp-img-wrapper img { transform: scale(1.08); } .emp-overlay { opacity: 1; } }
+
+      .emp-info { padding: 24px;
+        h5 { font-size: 1.05rem; font-weight: 700; color: white; margin-bottom: 6px; }
+        span { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+      }
+    }
+
+    .join-cta {
+      padding: 60px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+      border-color: rgba(108,99,255,0.2);
+
+      i { font-size: 3rem; color: #6c63ff; }
+      h2 { font-size: 2rem; font-weight: 800; }
+      p { color: rgba(255,255,255,0.6); margin: 0; }
+    }
+
+    .empty-state { padding: 60px; text-align: center;
+      i { font-size: 3rem; color: rgba(255,255,255,0.2); margin-bottom: 16px; display: block; }
+      h5 { color: rgba(255,255,255,0.5); }
+    }
+  

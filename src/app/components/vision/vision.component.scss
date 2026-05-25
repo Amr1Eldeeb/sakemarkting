@@ -1,0 +1,56 @@
+
+    .page-hero { padding: 160px 0 80px; position: relative;
+      &-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(0,212,255,0.12) 0%, transparent 60%), linear-gradient(180deg, #050814 0%, #0a0f1e 100%); }
+      & > .container-custom { position: relative; z-index: 1; .section-subtitle { margin: 0 auto; } }
+    }
+
+    .vision-statement {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+
+      .vs-circle { width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle, rgba(108,99,255,0.3), rgba(0,212,255,0.1)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #00d4ff; }
+      h2 { font-size: 1.4rem; color: rgba(255,255,255,0.8); line-height: 1.8; font-weight: 400; font-style: italic; }
+    }
+
+    .goals-timeline { display: flex; flex-direction: column; gap: 20px; }
+
+    .goal-timeline-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 32px;
+
+      .gtl-number { font-size: 1.4rem; font-weight: 900; flex-shrink: 0; width: 80px; }
+      .gtl-connector { width: 3px; height: 40px; flex-shrink: 0; border-radius: 2px; }
+      .gtl-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        flex: 1;
+        i { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+        h5 { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 6px; }
+        p { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin: 0; }
+      }
+    }
+
+    .future-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .future-card {
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+
+      .fc-glow { position: absolute; width: 200px; height: 200px; border-radius: 50%; top: -50px; right: -50px; filter: blur(60px); pointer-events: none; }
+      i { font-size: 2.2rem; margin-bottom: 20px; display: block; }
+      h5 { font-size: 1.05rem; font-weight: 700; color: white; margin-bottom: 10px; }
+      p { font-size: 0.88rem; color: rgba(255,255,255,0.6); margin: 0; }
+    }
+
+    @media (max-width: 992px) { .future-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 576px) { .future-grid { grid-template-columns: 1fr; } .goal-timeline-item { flex-direction: column; align-items: flex-start; .gtl-connector { display: none; } } }
+  

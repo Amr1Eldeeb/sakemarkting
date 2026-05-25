@@ -1,0 +1,99 @@
+
+    // Admin services styles
+
+    .admin-section {
+      .admin-section-header {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-bottom: 24px; flex-wrap: wrap; gap: 16px;
+
+        h2 { font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 4px; }
+        p { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin: 0; }
+      }
+
+      .search-bar {
+        display: flex; align-items: center; gap: 12px;
+        padding: 14px 20px; margin-bottom: 20px; border-radius: 12px;
+
+        i { color: rgba(255,255,255,0.35); flex-shrink: 0; }
+        input { flex: 1; background: none; border: none; outline: none; color: white; font-size: 0.9rem; font-family: inherit;
+          &::placeholder { color: rgba(255,255,255,0.3); }
+        }
+      }
+
+      .table-card { border-radius: 16px; overflow: hidden; }
+
+      .skeleton-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+
+      .admin-table {
+        width: 100%; border-collapse: collapse;
+
+        th { padding: 14px 20px; text-align: left; font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        td { padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(255,255,255,0.02); }
+      }
+
+      .table-img-cell {
+        width: 50px; height: 50px; border-radius: 12px; overflow: hidden;
+        img { width: 100%; height: 100%; object-fit: cover; }
+        .table-img-placeholder { width: 100%; height: 100%; background: rgba(108,99,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(108,99,255,0.6); font-size: 1.2rem; }
+      }
+
+      .table-name { font-weight: 600; color: white; font-size: 0.92rem; }
+      .table-desc { color: rgba(255,255,255,0.5); font-size: 0.82rem; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
+
+      .table-actions { display: flex; gap: 8px; }
+
+      .action-btn {
+        width: 34px; height: 34px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: all 0.2s;
+        &.edit { background: rgba(108,99,255,0.15); color: #8b85ff; &:hover { background: rgba(108,99,255,0.3); } }
+        &.delete { background: rgba(255,59,59,0.1); color: #ff6b6b; &:hover { background: rgba(255,59,59,0.2); } }
+      }
+
+      .empty-state { padding: 60px; text-align: center;
+        i { font-size: 3rem; color: rgba(255,255,255,0.15); margin-bottom: 16px; display: block; }
+        p { color: rgba(255,255,255,0.4); margin: 0; }
+      }
+    }
+
+    .modal-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 9990;
+    }
+
+    .admin-modal, .confirm-modal {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      z-index: 9991; width: calc(100% - 40px); max-width: 520px; padding: 32px;
+      border-color: rgba(108,99,255,0.2); animation: scale-in 0.2s ease;
+    }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;
+      h4 { font-size: 1.2rem; font-weight: 700; color: white; margin: 0; }
+      .modal-close { background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 1rem; padding: 4px; transition: color 0.2s; &:hover { color: white; } }
+    }
+
+    .file-upload-area {
+      border: 2px dashed rgba(255,255,255,0.12); border-radius: 12px; padding: 24px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      cursor: pointer; transition: all 0.3s; color: rgba(255,255,255,0.5);
+      i { font-size: 2rem; }
+      span { font-size: 0.88rem; }
+      &:hover { border-color: rgba(108,99,255,0.4); background: rgba(108,99,255,0.05); color: rgba(255,255,255,0.8); }
+    }
+
+    .modal-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+
+    .confirm-modal {
+      text-align: center; max-width: 380px;
+      .confirm-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,59,59,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #ff6b6b; margin: 0 auto 16px; }
+      h5 { font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 8px; }
+      p { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    }
+
+    .btn-delete {
+      display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 100px;
+      background: rgba(255,59,59,0.2); border: 1px solid rgba(255,59,59,0.3); color: #ff6b6b;
+      cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.2s;
+      &:hover { background: rgba(255,59,59,0.3); }
+      &:disabled { opacity: 0.5; cursor: not-allowed; }
+    }
+  

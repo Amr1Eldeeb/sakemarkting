@@ -1,0 +1,6 @@
+.app-wrapper {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  &.loaded { opacity: 1; }
+}
+main { min-height: 60vh; }

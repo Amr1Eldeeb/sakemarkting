@@ -1,0 +1,19 @@
+<div class="loader-overlay" [class.fade-out]="fadeOut">
+  <div class="loader-content">
+    
+    <div class="loader-logo">
+      <img src="assets/logo.png" alt="Logo" class="logo-asset-static">
+    </div>
+
+    <div class="loader-text">
+      <span class="typed-text">{{ displayText }}</span>
+      <span class="cursor-blink">|</span>
+    </div>
+    <p class="loader-tagline">Empowering Digital Ventures</p>
+
+    <div class="progress-bar-wrapper">
+      <div class="progress-bar-fill" [style.width.%]="progress"></div>
+    </div>
+    
+  </div>
+</div>

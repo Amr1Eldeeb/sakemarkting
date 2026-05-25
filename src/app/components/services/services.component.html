@@ -1,0 +1,68 @@
+<div class="services-page">
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container-custom text-center">
+      <div appReveal>
+        <div class="section-badge"><i class="bi bi-grid-fill"></i>What We Offer</div>
+        <h1 class="section-title">Our Services</h1>
+        <p class="section-subtitle mx-auto">Comprehensive digital solutions tailored to accelerate your business growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark-section">
+    <div class="container-custom">
+      <div class="row g-4" *ngIf="loading()">
+        <div class="col-lg-4 col-md-6" *ngFor="let i of [1,2,3,4,5,6]">
+          <div class="glass-card p-4">
+            <div class="skeleton mb-3" style="width:64px;height:64px;border-radius:16px;"></div>
+            <div class="skeleton mb-2" style="width:60%;height:22px;"></div>
+            <div class="skeleton" style="width:100%;height:80px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-4 mb-4 text-danger" *ngIf="error() && !loading()">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ error() }}
+        <button type="button" class="btn-outline-custom btn-sm-nav ms-3" (click)="load()">Retry</button>
+      </div>
+
+      <div class="row g-4" *ngIf="!loading() && !error()">
+        <div class="col-lg-4 col-md-6" *ngFor="let service of services(); let i = index" appReveal>
+          <div class="srv-card glass-card">
+            <div class="srv-img-wrapper" *ngIf="service.imageUrl">
+              <img [src]="getImageUrl(service.imageUrl)" [alt]="service.name" loading="lazy">
+            </div>
+            <div class="srv-icon" *ngIf="!service.imageUrl" [style.background]="getColor(i) + '15'">
+              <i class="bi" [class]="getIcon(i)" [style.color]="getColor(i)"></i>
+            </div>
+            <h4 class="srv-title">{{ service.name }}</h4>
+            <p class="srv-desc">{{ service.description }}</p>
+            <a routerLink="/contact" class="btn-primary-custom mt-3">
+              <i class="bi bi-calendar-check-fill"></i>
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="empty-state glass-card" *ngIf="!loading() && !error() && services().length === 0">
+        <i class="bi bi-grid-x"></i>
+        <h5>No services available at the moment.</h5>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gradient-section">
+    <div class="container-custom text-center" appReveal>
+      <h2 class="section-title mb-3">Ready to <span class="gradient-text">Get Started?</span></h2>
+      <p class="section-subtitle mx-auto mb-4">Contact us today for a free consultation.</p>
+      <a routerLink="/contact" class="btn-primary-custom">
+        <i class="bi bi-calendar-check-fill"></i>
+        Get Free Consultation
+      </a>
+    </div>
+  </section>
+</div>
+
+

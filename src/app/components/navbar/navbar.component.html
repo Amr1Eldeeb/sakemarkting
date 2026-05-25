@@ -1,0 +1,48 @@
+<nav class="navbar-custom" [class.scrolled]="scrolled()">
+  <div class="nav-container">
+    <a routerLink="/" class="nav-logo">
+      <img src="assets/logo.png" alt="Sake Marketing Logo" class="header-logo">
+      <span class="logo-text">Sake Marketing Soluations</span>
+    </a>
+
+    <ul class="nav-links" [class.open]="menuOpen()">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a></li>
+      <li class="dropdown">
+        <a href="#" (click)="toggleDropdown($event)">
+          Company
+          <i class="bi bi-chevron-down dropdown-arrow"></i>
+        </a>
+        <div class="dropdown-menu-custom" [class.open]="dropdownOpen()">
+          <a routerLink="/mission" (click)="closeDropdown()">Mission</a>
+          <a routerLink="/vision" (click)="closeDropdown()">Vision</a>
+        </div>
+      </li>
+      <li><a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a></li>
+      <li><a routerLink="/team" routerLinkActive="active" (click)="closeMenu()">Team</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+      <li *ngIf="auth.isLoggedIn()">
+        <a routerLink="/admin" routerLinkActive="active" (click)="closeMenu()">Dashboard</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <ng-container *ngIf="auth.isLoggedIn(); else loginBtn">
+        <button class="btn-outline-custom btn-sm-nav" (click)="auth.logout()">
+          <i class="bi bi-box-arrow-right"></i>
+          Logout
+        </button>
+      </ng-container>
+
+      <ng-template #loginBtn>
+        <a routerLink="/contact" class="btn-primary-custom btn-sm-nav">
+          Get Consultation
+        </a>
+      </ng-template>
+
+      <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>

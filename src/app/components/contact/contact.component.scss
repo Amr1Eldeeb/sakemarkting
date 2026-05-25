@@ -1,0 +1,42 @@
+
+    .page-hero { padding: 160px 0 80px; position: relative;
+      &-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(108,99,255,0.15) 0%, transparent 60%), linear-gradient(180deg, #050814 0%, #0a0f1e 100%); }
+      & > .container-custom { position: relative; z-index: 1; .section-subtitle { margin: 0 auto; } }
+    }
+
+    .contact-info-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .cil-item {
+      display: flex; align-items: flex-start; gap: 16px; padding: 20px;
+
+      .cil-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+      h6 { font-size: 0.85rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 4px; }
+      p { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin: 0; }
+    }
+
+    .social-section h6 { font-size: 0.9rem; font-weight: 700; color: white; }
+
+    .social-links { display: flex; gap: 10px; }
+
+    .social-link {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6); text-decoration: none; font-size: 1.05rem;
+      transition: all 0.3s ease;
+      &:hover { background: rgba(108,99,255,0.2); border-color: rgba(108,99,255,0.4); color: #8b85ff; transform: translateY(-3px); }
+    }
+
+    .contact-form-card { padding: 40px;
+      h4 { font-size: 1.3rem; font-weight: 700; color: white; }
+    }
+
+    .map-wrapper { .map-placeholder { min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border-radius: 20px;
+      .map-grid-overlay { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(108,99,255,0.05) 0px, rgba(108,99,255,0.05) 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(108,99,255,0.05) 0px, rgba(108,99,255,0.05) 1px, transparent 1px, transparent 40px); }
+      .map-inner { text-align: center; color: rgba(255,255,255,0.5); position: relative; z-index: 1;
+        i { font-size: 3rem; color: #6c63ff; margin-bottom: 12px; display: block; animation: float 3s ease-in-out infinite; }
+        h5 { color: rgba(255,255,255,0.8); margin-bottom: 6px; }
+        p { font-size: 0.88rem; }
+      }
+    }}
+  

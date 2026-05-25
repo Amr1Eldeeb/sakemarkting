@@ -1,0 +1,68 @@
+
+    <div class="login-page">
+      <div class="login-bg">
+        <div class="login-orb orb-1"></div>
+        <div class="login-orb orb-2"></div>
+        <div class="login-particles">
+          <div class="lp" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]"
+               [style.left]="(i * 10) + '%'"
+               [style.animation-delay]="(i * 0.3) + 's'"
+               [style.animation-duration]="(6 + i) + 's'"></div>
+        </div>
+      </div>
+
+      <div class="login-card glass-card">
+        <!-- Logo -->
+        <div class="login-logo">
+          <div class="logo-icon-nav">SM</div>
+          <div>
+            <h3>Sake <span class="gradient-text">Marketing</span></h3>
+            <span>Solutions</span>
+          </div>
+        </div>
+
+        <h2>Admin Login</h2>
+        <p class="login-subtitle">Sign in to your dashboard</p>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group-custom">
+            <label>Email Address</label>
+            <div class="input-icon-wrapper">
+              <i class="bi bi-envelope-fill input-icon"></i>
+              <input class="form-control-custom with-icon" formControlName="email" type="email"
+                     [class.is-invalid]="isInvalid('email')" placeholder="admin@example.com">
+            </div>
+            <div class="invalid-feedback" *ngIf="isInvalid('email')">
+              <i class="bi bi-exclamation-circle"></i>Please enter a valid email address
+            </div>
+          </div>
+
+          <div class="form-group-custom">
+            <label>Password</label>
+            <div class="input-icon-wrapper">
+              <i class="bi bi-lock-fill input-icon"></i>
+              <input class="form-control-custom with-icon" formControlName="password"
+                     [type]="showPassword() ? 'text' : 'password'"
+                     [class.is-invalid]="isInvalid('password')" placeholder="••••••••">
+              <button type="button" class="password-toggle" (click)="showPassword.update(v => !v)">
+                <i class="bi" [class.bi-eye-fill]="!showPassword()" [class.bi-eye-slash-fill]="showPassword()"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback" *ngIf="isInvalid('password')">
+              <i class="bi bi-exclamation-circle"></i>This field is required
+            </div>
+          </div>
+
+          <div class="login-error glass-card" *ngIf="errorMsg()">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            {{ errorMsg() }}
+          </div>
+
+          <button type="submit" class="btn-primary-custom w-100 mt-2" [disabled]="loading()">
+            <span *ngIf="!loading()"><i class="bi bi-box-arrow-in-right"></i> Sign In</span>
+            <span *ngIf="loading()"><i class="bi bi-hourglass-split"></i> Signing in...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  

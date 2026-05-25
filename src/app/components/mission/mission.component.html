@@ -1,0 +1,58 @@
+
+    <div class="mission-page">
+      <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container-custom text-center">
+          <div class="page-hero-content" appReveal>
+            <div class="section-badge"><i class="bi bi-bullseye"></i>Driving Digital Excellence</div>
+            <h1 class="section-title">Our Mission</h1>
+            <p class="section-subtitle mx-auto">Our mission is to empower businesses with innovative digital marketing solutions, cutting-edge technology, and strategic insights that drive sustainable growth and competitive advantage.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-dark-section">
+        <div class="container-custom">
+          <div class="mission-statement glass-card" appReveal>
+            <div class="ms-icon"><i class="bi bi-bullseye"></i></div>
+            <p>Our mission is to empower businesses with innovative digital marketing solutions, cutting-edge technology, and strategic insights that drive sustainable growth and competitive advantage.</p>
+          </div>
+
+          <div class="section-header mt-5" appReveal>
+            <div class="section-badge"><i class="bi bi-gem"></i>Core Values</div>
+            <h2 class="section-title">Core <span class="gradient-text">Values</span></h2>
+          </div>
+
+          <div class="row g-4 mt-4">
+            <div class="col-lg-6" *ngFor="let v of values" appReveal>
+              <div class="value-card glass-card">
+                <div class="value-icon" [style.background]="v.color + '15'" [style.border-color]="v.color + '30'">
+                  <i class="bi" [class]="v.icon" [style.color]="v.color"></i>
+                </div>
+                <div>
+                  <h5>{{ v.title }}</h5>
+                  <p>{{ v.desc }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-gradient-section">
+        <div class="container-custom">
+          <div class="section-header" appReveal>
+            <h2 class="section-title">How We <span class="gradient-text">Deliver</span> Our Mission</h2>
+          </div>
+          <div class="delivery-grid mt-5">
+            <div class="delivery-item glass-card" *ngFor="let d of deliveryItems; let i = index" appReveal>
+              <span class="delivery-num">0{{ i + 1 }}</span>
+              <i class="bi" [class]="d.icon"></i>
+              <h5>{{ d.title }}</h5>
+              <p>{{ d.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  

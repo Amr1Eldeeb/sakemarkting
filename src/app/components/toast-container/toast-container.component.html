@@ -1,0 +1,17 @@
+
+    <div class="toast-container-custom">
+      <div
+        *ngFor="let toast of toastSvc.toasts()"
+        class="toast-custom"
+        [class.toast-success]="toast.type === 'success'"
+        [class.toast-error]="toast.type === 'error'"
+        [class.toast-info]="toast.type === 'info'"
+      >
+        <i class="bi" [class]="toast.icon"></i>
+        <span>{{ toast.message }}</span>
+        <button class="toast-close" (click)="toastSvc.remove(toast.id)">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+  

@@ -1,0 +1,132 @@
+
+    <div class="admin-section">
+      <!-- Header -->
+      <div class="admin-section-header">
+        <div>
+          <h2>Services</h2>
+          <p>Manage your services portfolio</p>
+        </div>
+        <button class="btn-primary-custom" (click)="openModal()">
+          <i class="bi bi-plus-circle-fill"></i>
+          Add Service
+        </button>
+      </div>
+
+      <!-- Search -->
+      <div class="search-bar glass-card">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search..." (input)="onSearch($event)">
+      </div>
+
+      <!-- Loading skeleton -->
+      <div class="table-card glass-card" *ngIf="loading()">
+        <div class="skeleton-row" *ngFor="let i of [1,2,3,4,5]">
+          <div class="skeleton" style="width:50px;height:50px;border-radius:12px;flex-shrink:0;"></div>
+          <div style="flex:1">
+            <div class="skeleton mb-2" style="width:40%;height:16px;"></div>
+            <div class="skeleton" style="width:70%;height:12px;"></div>
+          </div>
+          <div class="skeleton" style="width:120px;height:36px;border-radius:8px;"></div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-card glass-card" *ngIf="!loading()">
+        <div class="empty-state" *ngIf="filtered().length === 0">
+          <i class="bi bi-grid-x"></i>
+          <p>No results found</p>
+        </div>
+
+        <table class="admin-table" *ngIf="filtered().length > 0">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let s of filtered()">
+              <td>
+                <div class="table-img-cell">
+                  <img *ngIf="s.imageUrl" [src]="getImageUrl(s.imageUrl)" [alt]="s.name" loading="lazy">
+                  <div *ngIf="!s.imageUrl" class="table-img-placeholder">
+                    <i class="bi bi-grid-fill"></i>
+                  </div>
+                </div>
+              </td>
+              <td><span class="table-name">{{ s.name }}</span></td>
+              <td><span class="table-desc">{{ s.description }}</span></td>
+              <td>
+                <div class="table-actions">
+                  <button class="action-btn edit" (click)="openModal(s)" title="Edit">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="action-btn delete" (click)="confirmDelete(s)" title="Delete">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal-backdrop" *ngIf="showModal()" (click)="closeModal()"></div>
+      <div class="admin-modal glass-card" *ngIf="showModal()">
+        <div class="modal-header">
+          <h4>{{ editingId() ? 'Edit' : 'Add Service' }}</h4>
+          <button class="modal-close" (click)="closeModal()"><i class="bi bi-x-lg"></i></button>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="save()">
+          <div class="form-group-custom">
+            <label>Name</label>
+            <input class="form-control-custom" formControlName="name" type="text" [class.is-invalid]="isInvalid('name')">
+            <div class="invalid-feedback" *ngIf="isInvalid('name')"><i class="bi bi-exclamation-circle"></i> Required</div>
+          </div>
+
+          <div class="form-group-custom">
+            <label>Description</label>
+            <textarea class="form-control-custom" formControlName="description" rows="3" [class.is-invalid]="isInvalid('description')"></textarea>
+            <div class="invalid-feedback" *ngIf="isInvalid('description')"><i class="bi bi-exclamation-circle"></i> Required</div>
+          </div>
+
+          <div class="form-group-custom">
+            <label>Image</label>
+            <div class="file-upload-area" (click)="fileInput.click()">
+              <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" hidden>
+              <i class="bi bi-cloud-upload-fill"></i>
+              <span>{{ selectedFile() ? selectedFile()!.name : 'Click to upload image' }}</span>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-outline-custom" (click)="closeModal()">
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary-custom" [disabled]="saving()">
+              <span *ngIf="!saving()"><i class="bi bi-check-lg"></i> Save</span>
+              <span *ngIf="saving()"><i class="bi bi-hourglass-split"></i> Saving...</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Delete Confirm -->
+      <div class="modal-backdrop" *ngIf="showDeleteConfirm()" (click)="showDeleteConfirm.set(false)"></div>
+      <div class="confirm-modal glass-card" *ngIf="showDeleteConfirm()">
+        <div class="confirm-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
+        <h5>Are you sure you want to delete this item?</h5>
+        <p>{{ deleteTarget()?.name }}</p>
+        <div class="modal-actions">
+          <button class="btn-outline-custom" (click)="showDeleteConfirm.set(false)">Cancel</button>
+          <button class="btn-delete" (click)="deleteConfirmed()" [disabled]="saving()">
+            <i class="bi bi-trash-fill"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  

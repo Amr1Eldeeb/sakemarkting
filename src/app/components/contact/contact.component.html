@@ -1,0 +1,113 @@
+<div class="contact-page">
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container-custom text-center">
+      <div appReveal>
+        <div class="section-badge"><i class="bi bi-envelope-fill"></i>Get In Touch</div>
+        <h1 class="section-title">Contact Us</h1>
+        <p class="section-subtitle mx-auto">We are a premium digital agency that transforms brands through innovative marketing strategies, world-class web development, and data-driven campaigns.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark-section">
+    <div class="container-custom">
+      <div class="row g-5">
+        <div class="col-lg-4" appReveal>
+          <div class="section-badge mb-3"><i class="bi bi-geo-alt-fill"></i>Get In Touch</div>
+          <h2 class="section-title mb-4">Let's <span class="gradient-text">Talk</span></h2>
+
+          <div class="contact-info-list">
+            <div class="cil-item glass-card" *ngFor="let item of contactInfo">
+              <div class="cil-icon" [style.background]="item.color + '15'">
+                <i class="bi" [class]="item.icon" [style.color]="item.color"></i>
+              </div>
+              <div>
+                <h6>{{ item.label }}</h6>
+                <p>{{ item.value }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-section mt-4">
+            <h6 class="mb-3">Follow Us</h6>
+            <div class="social-links">
+              <a *ngFor="let s of socials" href="#" class="social-link" [title]="s.name">
+                <i class="bi" [class]="s.icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8" appReveal>
+          <div class="contact-form-card glass-card">
+            <h4 class="mb-4">Send Message</h4>
+            <form [formGroup]="contactForm" (ngSubmit)="submit()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Full Name</label>
+                    <input class="form-control-custom" formControlName="name" type="text" [class.is-invalid]="isInvalid('name')">
+                    <div class="invalid-feedback" *ngIf="isInvalid('name')"><i class="bi bi-exclamation-circle"></i>This field is required</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Phone Number</label>
+                    <input class="form-control-custom" formControlName="phoneNumber" type="tel" [class.is-invalid]="isInvalid('phoneNumber')">
+                    <div class="invalid-feedback" *ngIf="isInvalid('phoneNumber')"><i class="bi bi-exclamation-circle"></i>Please enter a valid phone number</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Your Email</label>
+                    <input class="form-control-custom" formControlName="email" type="email" [class.is-invalid]="isInvalid('email')">
+                    <div class="invalid-feedback" *ngIf="isInvalid('email')"><i class="bi bi-exclamation-circle"></i>Please enter a valid email address</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Company Name</label>
+                    <input class="form-control-custom" formControlName="companyName" type="text">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label>Estimated Budget</label>
+                    <input class="form-control-custom" formControlName="estimatedBudget" type="text" placeholder="e.g. $5,000 - $10,000">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group-custom">
+                    <label>Your Message</label>
+                    <textarea class="form-control-custom" formControlName="message" rows="5" [class.is-invalid]="isInvalid('message')"></textarea>
+                    <div class="invalid-feedback" *ngIf="isInvalid('message')"><i class="bi bi-exclamation-circle"></i>This field is required</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom w-100" [disabled]="submitting()">
+                    <span *ngIf="!submitting()"><i class="bi bi-send-fill"></i> Send Message</span>
+                    <span *ngIf="submitting()"><i class="bi bi-hourglass-split"></i> Sending...</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrapper mt-5" appReveal>
+        <div class="map-placeholder glass-card">
+          <div class="map-grid-overlay"></div>
+          <div class="map-inner">
+            <i class="bi bi-geo-alt-fill"></i>
+            <h5>Digital Hub, Cairo, Egypt</h5>
+            <p>123 Digital Street, Cairo 11511, Egypt</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

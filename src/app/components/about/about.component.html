@@ -1,0 +1,93 @@
+
+    <div class="about-page">
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container-custom">
+          <div class="page-hero-content" appReveal>
+            <div class="section-badge"><i class="bi bi-info-circle-fill"></i>Who We Are</div>
+            <h1 class="section-title">About Sake Marketing Solutions</h1>
+            <p class="section-subtitle">We are a premium digital agency that transforms brands through innovative marketing strategies, world-class web development, and data-driven campaigns.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Story Section -->
+      <section class="section bg-dark-section">
+        <div class="container-custom">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-6" appReveal>
+              <div class="section-badge"><i class="bi bi-book-fill"></i>Our Story</div>
+              <h2 class="section-title">Our <span class="gradient-text">Story</span></h2>
+              <div class="gradient-line"></div>
+              <p class="section-subtitle">Born from a vision to redefine digital marketing in the Arab world and beyond, Sake Marketing Solutions was founded by a team of passionate digital experts determined to make a difference.</p>
+              <p class="section-subtitle mt-3">Founded with a passion for digital excellence, Sake Marketing Solutions has grown into a trusted partner for businesses across the globe.</p>
+            </div>
+            <div class="col-lg-6" appReveal>
+              <div class="timeline">
+                <div class="timeline-item" *ngFor="let item of timeline">
+                  <div class="tl-year">{{ item.year }}</div>
+                  <div class="tl-dot"></div>
+                  <div class="tl-content glass-card">
+                    <h6>{{ item.title }}</h6>
+                    <p>{{ item.desc }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Goals Section -->
+      <section class="section bg-gradient-section">
+        <div class="container-custom">
+          <div class="section-header" appReveal>
+            <div class="section-badge"><i class="bi bi-bullseye"></i>Our Goals</div>
+            <h2 class="section-title">Our Goals</h2>
+            <p class="section-subtitle">We aim to be the leading digital solutions provider in the MENA region, empowering businesses with innovative technology and creative strategies.</p>
+          </div>
+          <div class="row g-4 mt-4">
+            <div class="col-lg-3 col-md-6" *ngFor="let goal of goals" appReveal>
+              <div class="goal-card glass-card">
+                <i class="bi" [class]="goal.icon" [style.color]="goal.color"></i>
+                <h5>{{ goal.title }}</h5>
+                <p>{{ goal.desc }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements -->
+      <section class="section">
+        <div class="container-custom">
+          <div class="section-header" appReveal>
+            <div class="section-badge"><i class="bi bi-trophy-fill"></i>Achievements</div>
+            <h2 class="section-title">Our <span class="gradient-text">Achievements</span></h2>
+          </div>
+          <div class="achievements-grid mt-5">
+            <div class="achievement-item glass-card" *ngFor="let a of achievements" appReveal>
+              <div class="ach-icon" [style.background]="a.color + '15'">
+                <i class="bi" [class]="a.icon" [style.color]="a.color"></i>
+              </div>
+              <div class="ach-num" [style.color]="a.color">{{ a.value }}</div>
+              <div class="ach-label">{{ a.label }}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section bg-dark-section">
+        <div class="container-custom text-center" appReveal>
+          <h2 class="section-title mb-3">Ready to <span class="gradient-text">Work Together?</span></h2>
+          <p class="section-subtitle mx-auto mb-4">Ready to take your business to the next level? Schedule a free consultation with our experts and discover how we can help you achieve your digital goals.</p>
+          <a routerLink="/contact" class="btn-primary-custom">
+            <i class="bi bi-calendar-check-fill"></i>
+            Get Free Consultation
+          </a>
+        </div>
+      </section>
+    </div>
+  
