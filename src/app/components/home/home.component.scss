@@ -137,8 +137,13 @@ $bg-card: rgba(255, 255, 255, 0.03);
   flex-direction: column;
 
   .stat-number {
+    display: inline-block;
     font-size: 1.8rem;
     font-weight: 800;
+    font-variant-numeric: tabular-nums; // يمنع الاهتزاز بجعل أبعاد الأرقام متساوية
+    will-change: transform;            // يحسن الأداء أثناء تحرك السكرول والعداد
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     background: linear-gradient(135deg, $brand-pink, $brand-purple);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -191,7 +196,7 @@ $bg-card: rgba(255, 255, 255, 0.03);
 
 .metric-row {
   .metric-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
-  .metric-val { font-weight: 700; }
+  .metric-val { font-weight: 700; font-variant-numeric: tabular-nums; }
   .metric-bar { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden;
     .metric-fill { height: 100%; background: linear-gradient(90deg, $brand-pink, $brand-purple); border-radius: 3px; transition: width 1s ease; }
   }
@@ -211,7 +216,7 @@ $bg-card: rgba(255, 255, 255, 0.03);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 
   i { font-size: 1.4rem; }
-  .fb-val { display: block; font-size: 1.1rem; font-weight: 800; color: white; line-height: 1; }
+  .fb-val { display: block; font-size: 1.1rem; font-weight: 800; color: white; line-height: 1; font-variant-numeric: tabular-nums; }
   .fb-label { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
   &.badge-1 {
@@ -278,7 +283,16 @@ $bg-card: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba($brand-purple, 0.2);
 
     i { font-size: 1.8rem; color: lighten($brand-pink, 5%); margin-bottom: 8px; display: block; }
-    .acs-val { display: block; font-size: 1.6rem; font-weight: 800; color: white; }
+    .acs-val { 
+      display: inline-block; 
+      font-size: 1.6rem; 
+      font-weight: 800; 
+      color: white;
+      font-variant-numeric: tabular-nums;
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
     .acs-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
   }
 }
@@ -360,7 +374,17 @@ $bg-card: rgba(255, 255, 255, 0.03);
     margin: 0 auto 16px;
   }
 
-  .counter-num { font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 8px; }
+  .counter-num { 
+    display: inline-block;
+    font-size: 3rem; 
+    font-weight: 900; 
+    line-height: 1; 
+    margin-bottom: 8px; 
+    font-variant-numeric: tabular-nums; // يمنع الرعشة واهتزاز الأرقام تماماً هنا أيضاً
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
   .counter-label { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
 }
 
