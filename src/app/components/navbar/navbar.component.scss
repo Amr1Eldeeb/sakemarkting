@@ -7,17 +7,15 @@ $brand-purple: #832084;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9000;
+  z-index: 99999 !important; /* نضمن إن الهيدر فوق كل كروت الموقع */
   padding: 20px 0;
   transition: all 0.3s ease;
 
   &.scrolled {
     padding: 12px 0;
-    background: rgba(5,8,20,0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #050814 !important; /* خلفية داكنة صلبة عند السكرول لعدم التداخل */
     border-bottom: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   }
 }
 
@@ -53,13 +51,6 @@ $brand-purple: #832084;
     font-size: 1.15rem;
     font-weight: 700;
     color: white;
-
-    .gradient-text {
-      background: linear-gradient(135deg, $brand-pink, $brand-purple);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
   }
 }
 
@@ -99,23 +90,23 @@ $brand-purple: #832084;
     }
   }
 
+  /* ظبط الـ Dropdown على الشاشات الكبيرة (الكمبيوتر) */
   .dropdown {
     .dropdown-menu-custom {
       position: absolute;
       top: calc(100% + 8px);
       left: 50%;
-      transform: translateX(-50%);
-      background: rgba(10,15,30,0.95);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.08);
+      transform: translateX(-50%) translateY(-10px);
+      background: #0d1122 !important; /* لون داكن مميز صريح */
+      border: 1px solid rgba($brand-pink, 0.4) !important; 
       border-radius: 12px;
       padding: 8px;
       min-width: 180px;
       opacity: 0;
       visibility: hidden;
-      transform: translateX(-50%) translateY(-10px);
       transition: all 0.2s ease;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      z-index: 999999 !important;
 
       &.open {
         opacity: 1;
@@ -127,15 +118,14 @@ $brand-purple: #832084;
         display: block;
         padding: 10px 16px;
         border-radius: 8px;
-        color: rgba(255,255,255,0.8);
+        color: #ffffff !important;
         text-decoration: none;
         font-size: 0.88rem;
         font-weight: 500;
-        transition: all 0.2s ease;
 
         &:hover {
-          background: rgba($brand-pink, 0.15);
-          color: lighten($brand-pink, 10%);
+          background: rgba($brand-pink, 0.2) !important;
+          color: lighten($brand-pink, 10%) !important;
         }
       }
     }
@@ -147,28 +137,6 @@ $brand-purple: #832084;
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
-}
-
-.lang-switcher {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.8);
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  font-family: 'Inter', sans-serif;
-
-  &:hover {
-    background: rgba($brand-pink, 0.15);
-    border-color: rgba($brand-pink, 0.3);
-    color: lighten($brand-pink, 10%);
-  }
 }
 
 .btn-sm-nav {
@@ -201,20 +169,25 @@ $brand-purple: #832084;
   }
 }
 
+/* 📱 ظبط شاشات الموبايل بشكل صارم لمنع التداخل والشفافية 📱 */
 @media (max-width: 1024px) {
   .nav-links {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
-    background: rgba(5,8,20,0.98);
-    backdrop-filter: blur(20px);
+    background: #050814 !important; /* لون الخلفية أسود تماماً عشان الكروت متظهرش وراها */
     opacity: 0;
     visibility: hidden;
     z-index: 8999;
     transform: translateY(-20px);
     transition: all 0.3s ease;
-    gap: 8px;
+    gap: 12px;
+    padding: 24px;
 
     &.open {
       opacity: 1;
@@ -222,14 +195,65 @@ $brand-purple: #832084;
       transform: translateY(0);
     }
 
-    li a {
-      font-size: 1.2rem;
-      padding: 12px 24px;
+    li {
+      width: 100%;
+      text-align: center;
+      
+      a {
+        font-size: 1.2rem;
+        padding: 12px;
+        justify-content: center;
+        color: #ffffff;
+      }
+    }
+
+    /* حل مشكلة الـ Dropdown في الموبايل */
+    .dropdown {
+      width: 100%;
+      
+      .dropdown-menu-custom {
+        position: static !important; /* نلغي الـ Absolute والـ الـ التداخل تماماً */
+        transform: none !important;
+        background: rgba(255, 255, 255, 0.04) !important; /* تمييز الخلفية */
+        border: none !important;
+        border-top: 1px solid rgba($brand-pink, 0.2) !important;
+        border-bottom: 1px solid rgba($brand-pink, 0.2) !important;
+        box-shadow: none !important;
+        border-radius: 8px;
+        width: 90%;
+        margin: 8px auto 0 auto;
+        padding: 4px;
+        
+        /* التحكم بالظهور المعتمد على كلاس .open الخاص بـ Angular */
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+
+        &.open {
+          display: block !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
+
+        a {
+          font-size: 1rem !important;
+          padding: 10px !important;
+          color: rgba(255,255,255,0.9) !important;
+          
+          &:hover {
+            background: transparent !important;
+            color: $brand-pink !important;
+          }
+        }
+      }
     }
   }
 
-  .hamburger { display: flex; z-index: 9001; }
-  .btn-sm-nav { display: none; }
+  .hamburger { 
+    display: flex !important; 
+    z-index: 9001 !important; 
+  }
+  .btn-sm-nav { display: none !important; }
 }
 
 @media (max-width: 480px) {

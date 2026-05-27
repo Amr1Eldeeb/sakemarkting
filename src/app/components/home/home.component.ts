@@ -162,7 +162,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           this.counters.forEach(counter => {
-            const duration = 2000;
+            const duration = 1500;
             const step = counter.target / (duration / 16);
             const interval = setInterval(() => {
               counter.value = Math.min(counter.value + Math.ceil(step), counter.target);

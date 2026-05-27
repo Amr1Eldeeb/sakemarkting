@@ -840,3 +840,29 @@ $bg-card: rgba(255, 255, 255, 0.03);
   .counters-grid { grid-template-columns: repeat(2, 1fr); }
   .tech-grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 768px) {
+
+  .counter-card {
+    padding: 14px;
+  }
+
+  .counter-num {
+    font-size: 1.5rem;
+  }
+
+  .counter-label {
+    font-size: 0.85rem;
+  }
+
+  .counter-icon {
+    transform: scale(0.9);
+  }
+
+  .counters-grid {
+    gap: 10px;
+  }
+}.acs-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
