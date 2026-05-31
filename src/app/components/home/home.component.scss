@@ -75,14 +75,7 @@ $bg-card: rgba(255, 255, 255, 0.03);
     animation: fade-in-up 0.8s ease;
   }
 }
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-}
-.hero-typed {
-  white-space: nowrap;
-}
+
 .hero-title {
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   font-weight: 900;
