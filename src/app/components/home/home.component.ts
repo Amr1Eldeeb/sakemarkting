@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private fb = inject(FormBuilder);
   private platformId = inject(PLATFORM_ID);
 
-  typingTexts = ['Digital Marketing', 'Web Development', 'Branding & SEO', 'Creative Agency'];
+  typingTexts = ['Digital Marketing', 'Web &Mobile', 'Branding & SEO'];
   currentTypingText = signal('');
   private typingInterval: ReturnType<typeof setInterval> | undefined;
 

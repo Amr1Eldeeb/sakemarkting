@@ -13,11 +13,11 @@ import { RevealDirective } from '../../directives/reveal.directive';
 })
 export class AboutComponent {
   timeline = [
-    { year: '2016', title: 'Company Founded', desc: 'Sake Marketing Solutions was founded with a vision to redefine digital marketing.' },
-    { year: '2018', title: 'Regional Expansion', desc: 'Expanded operations to cover the entire MENA region with 50+ clients.' },
-    { year: '2020', title: 'ISO Certification', desc: 'Achieved ISO 9001 certification for quality management excellence.' },
-    { year: '2022', title: 'Global Reach', desc: 'Extended services to Europe and North America with 200+ active clients.' },
-    { year: '2024', title: 'AI Integration', desc: 'Launched AI-powered marketing analytics platform for our clients.' }
+    { year: '2020', title: 'Company Founded', desc: 'Sake Marketing Solutions was founded with a vision to redefine digital marketing.' },
+    { year: '2021', title: 'Regional Expansion', desc: 'Expanded operations to cover the entire MENA region with 50+ clients.' },
+    { year: '2023', title: 'ISO Certification', desc: 'Achieved ISO 9001 certification for quality management excellence.' },
+    { year: '2025', title: 'Global Reach', desc: 'Extended services to Europe and North America with 200+ active clients.' },
+    { year: '2026', title: 'AI Integration', desc: 'Launched AI-powered marketing analytics platform for our clients.' }
   ];
 
   goals = [

@@ -90,7 +90,14 @@ $bg-card: rgba(255, 255, 255, 0.03);
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.hero-title {
+  font-size: 3.5rem; // كان أكبر خليه أصغر
+  line-height: 1.1;
+}
 
+.hero-typed {
+  font-size: 0.9em;
+}
 .gradient-text-hero {
   background: linear-gradient(135deg, $brand-dark-grey, lighten($brand-pink, 10%));
   -webkit-background-clip: text;
