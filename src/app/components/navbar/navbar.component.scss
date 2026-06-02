@@ -10,12 +10,35 @@ $brand-purple: #832084;
   z-index: 99999 !important; /* نضمن إن الهيدر فوق كل كروت الموقع */
   padding: 20px 0;
   transition: all 0.3s ease;
+  background: transparent; /* الهيدر شفاف في البداية */
 
+  /* ===== التعديلات هنا في حالة السكرول ===== */
   &.scrolled {
     padding: 12px 0;
-    background: #050814 !important; /* خلفية داكنة صلبة عند السكرول لعدم التداخل */
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    background: #ffffff !important; /* خلفية بيضاء صلبة */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* حد سفلي خفيف جداً */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* ظل ناعم يتناسب مع الأبيض */
+
+    /* تغيير لون اسم اللوجو ليظهر على الخلفية البيضاء */
+    .nav-logo .logo-text {
+      color: $brand-purple; /* استخدمنا البنفسجي الخاص باللوجو */
+    }
+
+    /* تغيير لون الروابط لتظهر على الخلفية البيضاء */
+    .nav-links li a {
+      color: #333333; /* رمادي داكن */
+      text-shadow: none; /* إزالة أي ظلال سابقة للنص */
+
+      &:hover, &.active {
+        color: $brand-pink; /* لون وردي عند الوقوف عليها */
+        background: rgba($brand-pink, 0.05); /* خلفية خفيفة جداً للرابط */
+      }
+    }
+
+    /* تغيير لون أيقونة الموبايل لتظهر على الخلفية البيضاء */
+    .hamburger span {
+      background: #333333;
+    }
   }
 }
 
@@ -50,7 +73,8 @@ $brand-purple: #832084;
   .logo-text {
     font-size: 1.15rem;
     font-weight: 700;
-    color: white;
+    color: white; /* اللون الافتراضي أبيض قبل السكرول */
+    transition: color 0.3s ease; /* تأثير انتقال ناعم للون */
   }
 }
 
@@ -68,7 +92,7 @@ $brand-purple: #832084;
     position: relative;
 
     a {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.9); /* اللون الافتراضي قبل السكرول */
       text-decoration: none;
       font-weight: 500;
       font-size: 0.9rem;
@@ -81,11 +105,7 @@ $brand-purple: #832084;
 
       &:hover, &.active {
         color: white;
-        background: rgba(255,255,255,0.06);
-      }
-
-      &.active {
-        color: lighten($brand-pink, 10%);
+        background: rgba(255,255,255,0.1);
       }
     }
   }
@@ -97,7 +117,7 @@ $brand-purple: #832084;
       top: calc(100% + 8px);
       left: 50%;
       transform: translateX(-50%) translateY(-10px);
-      background: #0d1122 !important; /* لون داكن مميز صريح */
+      background: #0d1122 !important; 
       border: 1px solid rgba($brand-pink, 0.4) !important; 
       border-radius: 12px;
       padding: 8px;
@@ -157,7 +177,7 @@ $brand-purple: #832084;
     display: block;
     width: 24px;
     height: 2px;
-    background: white;
+    background: white; /* اللون الافتراضي قبل السكرول */
     border-radius: 2px;
     transition: all 0.3s ease;
   }
@@ -180,7 +200,7 @@ $brand-purple: #832084;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
-    background: #050814 !important; /* لون الخلفية أسود تماماً عشان الكروت متظهرش وراها */
+    background: #050814 !important; /* لون الخلفية أسود تماماً للمنيو في الموبايل */
     opacity: 0;
     visibility: hidden;
     z-index: 8999;
@@ -203,18 +223,17 @@ $brand-purple: #832084;
         font-size: 1.2rem;
         padding: 12px;
         justify-content: center;
-        color: #ffffff;
+        color: #ffffff !important; /* إجبار الروابط في الموبايل تكون بيضا عشان الخلفية سودة */
       }
     }
 
-    /* حل مشكلة الـ Dropdown في الموبايل */
     .dropdown {
       width: 100%;
       
       .dropdown-menu-custom {
-        position: static !important; /* نلغي الـ Absolute والـ الـ التداخل تماماً */
+        position: static !important;
         transform: none !important;
-        background: rgba(255, 255, 255, 0.04) !important; /* تمييز الخلفية */
+        background: rgba(255, 255, 255, 0.04) !important;
         border: none !important;
         border-top: 1px solid rgba($brand-pink, 0.2) !important;
         border-bottom: 1px solid rgba($brand-pink, 0.2) !important;
@@ -223,8 +242,6 @@ $brand-purple: #832084;
         width: 90%;
         margin: 8px auto 0 auto;
         padding: 4px;
-        
-        /* التحكم بالظهور المعتمد على كلاس .open الخاص بـ Angular */
         display: none;
         opacity: 0;
         visibility: hidden;

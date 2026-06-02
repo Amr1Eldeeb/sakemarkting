@@ -9,10 +9,14 @@ export class EmployeeService {
   private http = inject(HttpClient);
   private baseUrl = `${environment.apiUrl}${environment.apiEndpoints.employees}`;
 
-  getAll(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(`${this.baseUrl}/GetAll`);
-  }
-
+  // getAll(): Observable<Employee[]> {
+  //   return this.http.get<Employee[]>(`${this.baseUrl}/GetAll`);
+  // }
+getAll(): Observable<Employee[]> {
+  return this.http.get<Employee[]>(
+    'http://sake-soluations.runasp.net/api/Employees/GetAll'
+  );
+}
   getById(id: number): Observable<Employee> {
     return this.http.get<Employee>(`${this.baseUrl}/${id}`);
   }
