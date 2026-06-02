@@ -10,7 +10,7 @@ export class EmployeeService {
   private baseUrl = `${environment.apiUrl}${environment.apiEndpoints.employees}`;
 
   getAll(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.baseUrl);
+    return this.http.get<Employee[]>(`${this.baseUrl}/GetAll`);
   }
 
   getById(id: number): Observable<Employee> {
