@@ -31,7 +31,7 @@ export class ContactComponent {
   });
 
   contactInfo = [
-    { icon: 'bi-geo-alt-fill', color: '#6c63ff', label: 'Address', value: '123 Digital Hub, Cairo, Egypt' },
+    { icon: 'bi-geo-alt-fill', color: '#6c63ff', label: 'Address', value: '123 Digital Hub, 6 October, Giza , Egypt' },
     { icon: 'bi-telephone-fill', color: '#00d4ff', label: 'Phone', value: '+201115332546' },
     { icon: 'bi-envelope-fill', color: '#ff6b9d', label: 'Email', value: 'info@sakemarketing.com' },
     { icon: 'bi-clock-fill', color: '#ffd700', label: 'Working Hours', value: 'Mon - Fri: 9:00 AM - 6:00 PM' }
