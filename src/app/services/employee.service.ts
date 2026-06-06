@@ -14,7 +14,7 @@ export class EmployeeService {
   // }
 getAll(): Observable<Employee[]> {
   return this.http.get<Employee[]>(
-    'http://sake-soluations.runasp.net/api/Employees/GetAll'
+    'https://sake-soluations.runasp.net/api/Employees/GetAll'
   );
 }
   getById(id: number): Observable<Employee> {
