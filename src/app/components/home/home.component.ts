@@ -39,10 +39,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   employeesError = signal<string | null>(null);
 
   counters = [
-    { label: 'Projects Completed', icon: 'bi-trophy-fill', value: 0, target: 500, suffix: '+', color: '#6c63ff' },
-    { label: 'Happy Clients', icon: 'bi-people-fill', value: 0, target: 300, suffix: '+', color: '#00d4ff' },
+    { label: 'Projects Completed', icon: 'bi-trophy-fill', value: 0, target: 50, suffix: '+', color: '#6c63ff' },
+    { label: 'Happy Clients', icon: 'bi-people-fill', value: 0, target: 80, suffix: '+', color: '#00d4ff' },
     { label: 'Team Members', icon: 'bi-person-workspace', value: 0, target: 50, suffix: '+', color: '#ff6b9d' },
-    { label: 'Years Experience', icon: 'bi-star-fill', value: 0, target: 8, suffix: '+', color: '#ffd700' }
+    { label: 'Years Experience', icon: 'bi-star-fill', value: 0, target: 6, suffix: '+', color: '#ffd700' }
   ];
 
   faqItems = [
