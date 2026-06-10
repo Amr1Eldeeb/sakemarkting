@@ -32,7 +32,7 @@
           <div class="social-section mt-4">
             <h6 class="mb-3">Follow Us</h6>
             <div class="social-links">
-              <a *ngFor="let s of socials" href="#" class="social-link" [title]="s.name">
+              <a *ngFor="let s of socials" [href]="s.url" class="social-link" target="_blank" [title]="s.name">
                 <i class="bi" [class]="s.icon"></i>
               </a>
             </div>

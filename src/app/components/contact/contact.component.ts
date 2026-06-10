@@ -38,11 +38,11 @@ export class ContactComponent {
   ];
 
   socials = [
-    { name: 'Facebook', icon: 'bi-facebook' },
-    { name: 'Twitter', icon: 'bi-twitter-x' },
-    { name: 'LinkedIn', icon: 'bi-linkedin' },
-    { name: 'Instagram', icon: 'bi-instagram' },
-    { name: 'WhatsApp', icon: 'bi-whatsapp' }
+    { name: 'Facebook', icon: 'bi-facebook',  url: 'https://www.facebook.com/SakeMarketing/' },
+    { name: 'LinkedIn', icon: 'bi-linkedin', url: 'https://www.linkedin.com/company/sake-marketing/'},
+    { name: 'Instagram', icon: 'bi-instagram',url:'https://www.instagram.com/sake_marketing_solutions/?hl=en' },
+    { name: 'WhatsApp', icon: 'bi-whatsapp','url':'https://wa.me/201115332546' },
+    { name: 'Twitter', icon: 'bi-twitter-x' }
   ];
 
   isInvalid(field: string): boolean {
