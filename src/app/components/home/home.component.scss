@@ -569,44 +569,67 @@ $bg-card: rgba(255, 255, 255, 0.03);
   }
 }
 
-// ===== CLIENTS SLIDER =====
-.clients-track-wrapper {
-  overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-}
-
-.clients-track {
-  display: flex;
-  gap: 40px;
-  animation: scroll-track 20s linear infinite;
-  width: max-content;
-
-  &:hover { animation-play-state: paused; }
-}
-
-@keyframes scroll-track {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+// ===== CLIENTS GRID =====
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 220px));
+  justify-content: center;
+  gap: 14px;
 }
 
 .client-logo {
   background: $bg-card;
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 12px;
-  padding: 16px 32px;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 8px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.76rem;
   color: rgba(255,255,255,0.4);
-  white-space: nowrap;
   transition: all 0.3s ease;
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  text-align: center;
+
+  img {
+    width: 170px;
+    height: 170px;
+    max-width: 100%;
+    max-height: calc(100% - 24px);
+    flex: none;
+    border-radius: 8px;
+    object-fit: contain;
+    background: rgba(255,255,255,0.06);
+  }
+
+  span {
+    flex-shrink: 0;
+    max-width: 100%;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-shadow: 0 1px 8px rgba(255,255,255,0.18);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.2;
+  }
 
   &:hover {
     background: rgba($brand-pink, 0.08);
     border-color: rgba($brand-pink, 0.3);
     color: rgba(255,255,255,0.8);
   }
+}
+
+.clients-state {
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  min-height: 40px;
 }
 
 // ===== TEAM =====
@@ -827,6 +850,7 @@ $bg-card: rgba(255, 255, 255, 0.03);
   .hero-visual { display: none; }
   .process-timeline { flex-direction: column; &::before { display: none; } }
   .process-step .step-circle { width: 60px; height: 60px; }
+  .clients-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 205px)); }
 }
 
 @media (max-width: 768px) {
@@ -834,6 +858,7 @@ $bg-card: rgba(255, 255, 255, 0.03);
   .tech-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-stats { gap: 16px; }
   .testimonial-dots { margin-top: 380px; }
+  .clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: center; gap: 12px; }
 }
 
 @media (max-width: 480px) {

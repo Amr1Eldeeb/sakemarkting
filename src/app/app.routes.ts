@@ -18,7 +18,8 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'services', pathMatch: 'full' },
       { path: 'services', loadComponent: () => import('./components/admin/admin-services/admin-services.component').then(m => m.AdminServicesComponent) },
-      { path: 'employees', loadComponent: () => import('./components/admin/admin-employees/admin-employees.component').then(m => m.AdminEmployeesComponent) }
+      { path: 'employees', loadComponent: () => import('./components/admin/admin-employees/admin-employees.component').then(m => m.AdminEmployeesComponent) },
+      { path: 'clients', loadComponent: () => import('./components/admin/admin-clients/admin-clients.component').then(m => m.AdminClientsComponent) }
     ]
   },
   { path: '**', loadComponent: () => import('./components/not-found/not-found.component').then(m => m.NotFoundComponent), title: '404 - Page Not Found' }

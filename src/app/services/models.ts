@@ -12,6 +12,15 @@ export interface Employee {
   imageUrl: string;
 }
 
+export interface Client {
+  id: number;
+  name: string;
+  /** The API currently returns this field for uploaded client images. */
+  imageUrl?: string;
+  /** Kept for compatibility with APIs that expose the stored path as `image`. */
+  image?: string;
+}
+
 export interface ConsultationRequest {
   name: string;
   phoneNumber: string;

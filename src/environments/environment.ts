@@ -7,6 +7,7 @@ export const environment = {
     authLogin: '/Auth/login',
     consultationRequest: '/Consultation/request',
     employees: '/Employees',
-    services: '/Services'
+    services: '/Services',
+    clients: '/Clients'
   }
 };

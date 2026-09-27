@@ -9,6 +9,8 @@ import { ImageUrlService } from '../../services/image-url.service';
 import { ToastService } from '../../services/toast.service';
 import { getApiErrorMessage } from '../../services/api-error.util';
 import { Employee, MarketingService, ConsultationRequest } from '../../services/models';
+import { Client } from '../../services/models';
+import { ClientService } from '../../services/client.service';
 import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
@@ -20,6 +22,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private employeeService = inject(EmployeeService);
+  private clientService = inject(ClientService);
   private serviceApi = inject(ServiceApiService);
   private consultationService = inject(ConsultationService);
   private imageUrl = inject(ImageUrlService);
@@ -37,6 +40,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   employeesLoading = signal(true);
   servicesError = signal<string | null>(null);
   employeesError = signal<string | null>(null);
+  clients = signal<Client[]>([]);
+  clientsLoading = signal(true);
+  clientsError = signal<string | null>(null);
 
   counters = [
     { label: 'Projects Completed', icon: 'bi-trophy-fill', value: 0, target: 50, suffix: '+', color: '#6c63ff' },
@@ -89,8 +95,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     { icon: 'bi-currency-dollar', title: 'Competitive Pricing', desc: 'Premium quality solutions at competitive market prices.' }
   ];
 
-  clients = ['DeepSoluations', 'Microsoft', 'Amazon', 'Meta', 'Apple', 'Netflix', 'Spotify', 'Adobe', 'Salesforce', 'Oracle'];
-
   consultForm!: FormGroup;
   submitting = signal(false);
 
@@ -103,6 +107,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.loadServices();
     this.loadEmployees();
+    this.loadClients();
     this.initForm();
     this.startTyping();
     this.startTestimonialSlider();
@@ -210,6 +215,26 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.employeesError.set(getApiErrorMessage(err, 'Failed to load team members.'));
       }
     });
+  }
+
+  private loadClients(): void {
+    this.clientsLoading.set(true);
+    this.clientsError.set(null);
+    this.clientService.getAll().subscribe({
+      next: (data) => {
+        this.clients.set(data);
+        this.clientsLoading.set(false);
+      },
+      error: (err) => {
+        this.clients.set([]);
+        this.clientsLoading.set(false);
+        this.clientsError.set(getApiErrorMessage(err, 'Failed to load clients.'));
+      }
+    });
+  }
+
+  getClientImageUrl(client: Client): string {
+    return this.imageUrl.resolve(client.imageUrl ?? client.image);
   }
 
   private initForm(): void {

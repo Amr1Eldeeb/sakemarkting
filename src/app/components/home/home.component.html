@@ -331,12 +331,16 @@
         <h2 class="section-title">Our <span class="gradient-text">Clients</span></h2>
       </div>
     </div>
-    <div class="clients-track-wrapper mt-5">
-      <div class="clients-track">
-        <div class="client-logo" *ngFor="let c of clients">{{ c }}</div>
-        <!-- Duplicate for infinite scroll -->
-        <div class="client-logo" *ngFor="let c of clients">{{ c }}</div>
-      </div>
+    <div class="clients-grid mt-5" *ngIf="clients().length > 0">
+        <div class="client-logo" *ngFor="let client of clients()">
+          <img *ngIf="getClientImageUrl(client)" [src]="getClientImageUrl(client)" [alt]="client.name" loading="lazy">
+          <span>{{ client.name }}</span>
+        </div>
+    </div>
+    <div class="clients-state mt-5" *ngIf="clients().length === 0">
+      <div class="clients-state" *ngIf="clientsLoading()">Loading clients...</div>
+      <div class="clients-state" *ngIf="!clientsLoading() && clientsError()">{{ clientsError() }}</div>
+      <div class="clients-state" *ngIf="!clientsLoading() && !clientsError() && clients().length === 0">Our clients will appear here soon.</div>
     </div>
   </section>
 
@@ -577,5 +581,3 @@
     </div>
   </section>
 </div>
-
-
